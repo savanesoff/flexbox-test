@@ -1,3 +1,11 @@
+/**
+ * This script generates SCSS classes for all Tailwind CSS classes.
+ * This is done due to the fact that TW relies on CSS variables for its classes, which are not supported in Cobalt Browser.
+ * 
+ * Generating TW classes in such a way may prevent TW form optimizing its footprint, but it's a trade-off for compatibility.
+ * 
+ * Run this file using Node.js to generate the SCSS classes file for updated Tailwind package.
+ */
 const fs = require('fs');
 const path = require('path');
 const resolveConfig = require('tailwindcss/resolveConfig');
@@ -74,5 +82,5 @@ const generateScssClasses = (theme) => {
 
 const scssClasses = generateScssClasses((section) => fullConfig.theme[section]);
 
-fs.writeFileSync(path.resolve(__dirname, 'src/generated-tailwind.scss'), scssClasses);
+fs.writeFileSync(path.resolve(__dirname, 'src/tailwindcss/generated-tailwind.scss'), scssClasses);
 console.log('Generated Tailwind SCSS classes successfully.');
