@@ -2,15 +2,19 @@
   "compilerOptions": {
     "allowJs": true,
     "target": "es5",
-    "module": "es6",
+    "module": "ESNext",
     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/lib/components/*"],
@@ -27,6 +31,11 @@
     // "typeRoots": ["node_modules/@types"],
     "types": ["react", "react-dom", "vitest/globals", "vitest/jsdom"]
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "vitest.config.ts",
+    "webpack.config.js",
+    "eslint.config.js"
+  ],
   "exclude": ["node_modules"]
 }

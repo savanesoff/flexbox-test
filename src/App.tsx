@@ -1,4 +1,4 @@
-import { JSComponents, TSComponent } from '@components';
+import { JSComponents, TSComponent } from '@components'
 
 export const App = () => {
   return (
@@ -7,5 +7,5 @@ export const App = () => {
       <JSComponents text={'Custom prop'} />
       <TSComponent text={'Custom prop'} />
     </div>
-  );
-};
+  )
+}

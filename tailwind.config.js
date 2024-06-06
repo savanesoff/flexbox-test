@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-const { tabSizePlugin, buttonComponentsPlugin } = require('./src/tailwindcss/plugins/components')
-module.exports = {
+import {
+  tabSizePlugin,
+  buttonComponentsPlugin,
+} from './src/tailwindcss/plugins/components'
+export default {
   content: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
   purge: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
   options: {
@@ -19,17 +22,12 @@ module.exports = {
       8: '8',
     },
     extend: {
-      // cannot extend the theme object as Cobalt 
+      // cannot extend the theme object as Cobalt
       // does not support the css properties
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    tabSizePlugin,
-    buttonComponentsPlugin,
-  ],
-};
-
-
+  plugins: [tabSizePlugin, buttonComponentsPlugin],
+}

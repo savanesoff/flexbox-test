@@ -1,15 +1,15 @@
-import plugin from 'tailwindcss/plugin';
+import plugin from 'tailwindcss/plugin'
 
 export const tabSizePlugin = plugin(function ({ matchUtilities, theme }) {
   matchUtilities(
     {
-      tab: (value) => ({
+      tab: value => ({
         tabSize: value,
       }),
     },
     { values: theme('tabSize') },
-  );
-});
+  )
+})
 
 export const buttonComponentsPlugin = plugin(function ({
   addComponents,
@@ -32,5 +32,5 @@ export const buttonComponentsPlugin = plugin(function ({
         backgroundColor: '#cc1f1a',
       },
     },
-  });
-});
+  })
+})
