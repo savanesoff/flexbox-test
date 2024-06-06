@@ -2,7 +2,7 @@
   "name": "cobalt-preact-ts-webpack-swc-tailwindcss",
   "version": "1.0.0",
   "description": "Cobalt example project for React with TypeScript, Webpack, SWC, Tailwind CSS ",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "start": "webpack serve --mode development --hot",
     "build": "webpack --mode production",
