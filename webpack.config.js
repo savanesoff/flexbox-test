@@ -54,7 +54,7 @@ const config = (env, argv) => {
       compress: true,
       port: 9500,
       hot: true,
-      open: true,
+      // open: true,
       client: {
         overlay: {
           warnings: false,
