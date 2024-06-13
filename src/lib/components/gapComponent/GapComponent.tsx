@@ -6,6 +6,8 @@ export const GapComponent = () => {
         <Box />
         <Box />
         <Box />
+        <Box />
+        <Box />
       </div>
     </div>
   )
