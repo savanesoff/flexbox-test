@@ -5,6 +5,7 @@ import typescriptParser from '@typescript-eslint/parser'
 import importPlugin from 'eslint-plugin-import'
 import prettierPlugin from 'eslint-plugin-prettier'
 import reactPlugin from 'eslint-plugin-react'
+import tailwindcssPlugin from 'eslint-plugin-tailwindcss'
 import vitestGlobalsPlugin from 'eslint-plugin-vitest-globals'
 
 const globalIgnorePatterns = ['node_modules', 'dist']
@@ -132,16 +133,24 @@ export default [
     },
   },
 
-  // Prettier configurations
+  // Prettier configurations with ban rule
   {
     ignores: globalIgnorePatterns,
-    files: ['**/*.{js,ts,jsx,tsx}'],
+    files: ['**/*.{js,ts,jsx,tsx}', 'eslint.config.js'],
     plugins: {
       prettier: prettierPlugin,
+      tailwindcss: tailwindcssPlugin,
     },
     rules: {
       ...prettierPlugin.configs.recommended.rules,
       'prettier/prettier': 'error',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'Literal[value=/(^|\\s)gap-\\d+/]',
+          message: 'Do not use gap-* classes.',
+        },
+      ],
     },
   },
 

@@ -3,6 +3,7 @@ import {
   tabSizePlugin,
   buttonComponentsPlugin,
 } from './src/tailwindcss/plugins/components'
+
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
   purge: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
@@ -29,5 +30,24 @@ export default {
   variants: {
     extend: {},
   },
-  plugins: [tabSizePlugin, buttonComponentsPlugin],
+  extend: {
+    screens: {
+      '540p': '540px',
+      '720p': '720px',
+      '1080p': '1080px',
+      '4k': '3840px',
+    },
+  },
+  plugins: [
+    tabSizePlugin,
+    buttonComponentsPlugin,
+    function ({ addUtilities, theme }) {
+      const newUtilities = {}
+      Object.entries(theme('spacing')).map(([name, value]) => {
+        newUtilities[`.row-gap-${name} > * + *`] = { marginRight: `${value}` }
+        newUtilities[`.col-gap-${name} > * + *`] = { marginTop: `${value}` }
+      })
+      addUtilities(newUtilities)
+    },
+  ],
 }
