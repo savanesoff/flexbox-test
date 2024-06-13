@@ -13,6 +13,7 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from './tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
+
 // Resolve __dirname in ESM
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -24,28 +25,43 @@ const generateScssClasses = theme => {
     return className.replace(/\//g, '\\/').replace(/\./g, '\\.')
   }
 
+  const addClass = (className, properties) => {
+    scssContent += `${className} {\n`
+    for (const property in properties) {
+      scssContent += `  ${property}: ${properties[property]};\n`
+    }
+    scssContent += `}\n\n`
+  }
+
   const addClasses = (prefix, themeSection, cssProperty) => {
     const section = theme(themeSection)
     for (const key in section) {
       if (Array.isArray(section[key])) {
         const className = sanitizeClassName(`${prefix}-${key}`)
-        scssContent += `.${className} {\n  ${cssProperty} : theme('${themeSection}[${key}][0]');\n}\n\n`
+        addClass(`.${className}`, {
+          [cssProperty]: `theme('${themeSection}[${key}][0]')`,
+        })
       } else if (typeof section[key] === 'object') {
         for (const subKey in section[key]) {
           const className = sanitizeClassName(`${prefix}-${key}-${subKey}`)
-          scssContent += `.${className} {\n  ${cssProperty} : theme('${themeSection}[${key}][${subKey}]');\n}\n\n`
+          addClass(`.${className}`, {
+            [cssProperty]: `theme('${themeSection}[${key}][${subKey}]')`,
+          })
         }
       } else {
         const className = sanitizeClassName(`${prefix}-${key}`)
-        scssContent += `.${className} {\n  ${cssProperty} : theme('${themeSection}[${key}]');\n}\n\n`
+        addClass(`.${className}`, {
+          [cssProperty]: `theme('${themeSection}[${key}]')`,
+        })
       }
     }
   }
 
   // Adding classes for various Tailwind properties
-  addClasses('bg', 'colors', 'background-color')
-  addClasses('text', 'colors', 'color')
-  addClasses('border', 'colors', 'border-color')
+  addClasses('bg', 'backgroundColor', 'background-color')
+  addClasses('text', 'textColor', 'color')
+  addClasses('border', 'borderColor', 'border-color')
+  addClasses('border', 'borderWidth', 'border-width')
   addClasses('font', 'fontFamily', 'font-family')
   addClasses('text', 'fontSize', 'font-size')
   addClasses('leading', 'lineHeight', 'line-height')
@@ -69,9 +85,8 @@ const generateScssClasses = theme => {
   addClasses('flex', 'flex', 'flex')
   addClasses('order', 'order', 'order')
   addClasses('grid', 'gridTemplateColumns', 'grid-template-columns')
-  addClasses('gap', 'gap', 'gap')
-  addClasses('space-x', 'spaceX', 'margin-right')
-  addClasses('space-y', 'spaceY', 'margin-bottom')
+  addClasses('space-x', 'space', 'margin-right')
+  addClasses('space-y', 'space', 'margin-bottom')
   addClasses('rounded', 'borderRadius', 'border-radius')
   addClasses('shadow', 'boxShadow', 'box-shadow')
   addClasses('opacity', 'opacity', 'opacity')
@@ -80,6 +95,60 @@ const generateScssClasses = theme => {
   addClasses('rotate', 'rotate', 'transform')
   addClasses('translate', 'translate', 'transform')
   addClasses('skew', 'skew', 'transform')
+  addClasses('flex-grow', 'flexGrow', 'flex-grow')
+  addClasses('flex-shrink', 'flexShrink', 'flex-shrink')
+  addClasses('justify', 'justifyContent', 'justify-content')
+  addClasses('items', 'alignItems', 'align-items')
+  addClasses('content', 'alignContent', 'align-content')
+  addClasses('self', 'alignSelf', 'align-self')
+  addClasses('place-content', 'placeContent', 'place-content')
+  addClasses('place-items', 'placeItems', 'place-items')
+  addClasses('place-self', 'placeSelf', 'place-self')
+  addClasses('overflow', 'overflow', 'overflow')
+  addClasses('overflow-x', 'overflowX', 'overflow-x')
+  addClasses('overflow-y', 'overflowY', 'overflow-y')
+  addClasses('overscroll', 'overscrollBehavior', 'overscroll-behavior')
+  addClasses('overscroll-x', 'overscrollBehaviorX', 'overscroll-behavior-x')
+  addClasses('overscroll-y', 'overscrollBehaviorY', 'overscroll-behavior-y')
+  addClasses('position', 'position', 'position')
+  addClasses('top', 'inset', 'top')
+  addClasses('right', 'inset', 'right')
+  addClasses('bottom', 'inset', 'bottom')
+  addClasses('left', 'inset', 'left')
+  addClasses('inset', 'inset', 'inset')
+  addClasses('visibility', 'visibility', 'visibility')
+  addClasses('cursor', 'cursor', 'cursor')
+  addClasses('pointer-events', 'pointerEvents', 'pointer-events')
+  addClasses('resize', 'resize', 'resize')
+  addClasses('user-select', 'userSelect', 'user-select')
+
+  // Add direction-specific inset classes using top, right, bottom, left
+  const insets = theme('inset')
+  Object.keys(insets).forEach(key => {
+    const sanitizedKey = sanitizeClassName(key)
+    addClass(`.inset-x-${sanitizedKey}`, {
+      left: `theme('inset[${key}]')`,
+      right: `theme('inset[${key}]')`,
+    })
+    addClass(`.inset-y-${sanitizedKey}`, {
+      top: `theme('inset[${key}]')`,
+      bottom: `theme('inset[${key}]')`,
+    })
+  })
+
+  // Add direction-specific gap classes using margins
+  const gaps = theme('gap')
+  Object.keys(gaps).forEach(key => {
+    const sanitizedKey = sanitizeClassName(key)
+    addClass(`.row-gap-${sanitizedKey} > * + *`, {
+      'margin-left': `theme('gap[${key}]')`,
+      'margin-right': '0',
+    })
+    addClass(`.col-gap-${sanitizedKey} > * + *`, {
+      'margin-top': `theme('gap[${key}]')`,
+      'margin-bottom': '0',
+    })
+  })
 
   return scssContent
 }
@@ -91,4 +160,5 @@ fs.writeFileSync(
   scssClasses,
 )
 console.log('Generated Tailwind SCSS classes successfully.')
+
 export { generateScssClasses }
