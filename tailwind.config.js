@@ -6,7 +6,6 @@ import {
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
-  purge: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
   options: {
     // These options are optional but can help fine-tune the purge process
     safelist: [],
@@ -14,7 +13,7 @@ export default {
     keyframes: true,
     fontFace: true,
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media',
   theme: {
     tabSize: {
       1: '1',
