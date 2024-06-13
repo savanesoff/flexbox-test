@@ -2,7 +2,8 @@
 import {
   tabSizePlugin,
   buttonComponentsPlugin,
-} from './src/tailwindcss/plugins/components'
+  gapsPlugin,
+} from './src/tailwindcss/plugins'
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx,html,scss,css}', './public/index.html'],
@@ -21,6 +22,9 @@ export default {
       4: '4',
       8: '8',
     },
+    // spacing: {
+    //   2: '25rem', // example custom spacing rules
+    // },
     extend: {
       // cannot extend the theme object as Cobalt
       // does not support the css properties
@@ -37,16 +41,5 @@ export default {
       '4k': '3840px',
     },
   },
-  plugins: [
-    tabSizePlugin,
-    buttonComponentsPlugin,
-    function ({ addUtilities, theme }) {
-      const newUtilities = {}
-      Object.entries(theme('spacing')).map(([name, value]) => {
-        newUtilities[`.row-gap-${name} > * + *`] = { marginRight: `${value}` }
-        newUtilities[`.col-gap-${name} > * + *`] = { marginTop: `${value}` }
-      })
-      addUtilities(newUtilities)
-    },
-  ],
+  plugins: [tabSizePlugin, buttonComponentsPlugin, gapsPlugin],
 }
