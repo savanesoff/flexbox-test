@@ -1,1 +1,1 @@
-export * from './JSComponents'
+export * from './tsComponent'

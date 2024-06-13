@@ -1,2 +1,2 @@
-export * from './JSComponent'
 export * from './TSComponent'
+export * from './JSComponent'
