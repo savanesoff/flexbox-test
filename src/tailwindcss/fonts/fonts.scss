@@ -1,3 +1,6 @@
+@import './generated-font-face.scss';
+
+// defined Root font sizes for different screen sizes (RFS)
 // Default font size
 html {
   font-size: 5px;
@@ -25,26 +28,4 @@ html {
   html {
     font-size: 64px;
   }
-}
-
-// define font families
-@font-face {
-  font-family: 'Open Sans Condensed';
-  src: url('./fonts/OpenSans_Condensed-Regular.ttf') format('truetype');
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('./fonts/OpenSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('./fonts/OpenSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('./fonts/OpenSans-SemiBold.ttf') format('truetype');
-  font-weight: 600;
 }

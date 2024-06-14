@@ -5,12 +5,13 @@
   "main": "./dist/main.js",
   "type": "module",
   "scripts": {
-    "start": "webpack serve --mode development --hot",
-    "build": "webpack --mode production",
+    "start": "pnpm generate:tailwind && pnpm generate:fonts && pnpm webpack serve --mode development --hot",
+    "build": "pnpm generate:tailwind && generate:fonts && webpack --mode production",
     "lint": "eslint . --ignore-pattern dist/",
     "format": "prettier --write .",
     "test": "vitest",
-    "generate:tailwind": "node --experimental-specifier-resolution=node ./scripts/generate-tailwind-scss.js"
+    "generate:tailwind": "node --experimental-specifier-resolution=node ./src/tailwindcss/scripts/generate-tailwind-scss.js",
+    "generate:fonts": "node --experimental-specifier-resolution=node ./src/tailwindcss/scripts/generate-fonts.js && pnpm format"
   },
   "keywords": [],
   "author": "",
@@ -23,8 +24,12 @@
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
+    "@babel/plugin-syntax-import-assertions": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@eslint/js": "^9.4.0",
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.5.7",

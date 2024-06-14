@@ -1,0 +1,22 @@
+{
+  "OpenSansCondensed": {
+    "regular": {
+      "path": "OpenSans_Condensed-Regular.ttf",
+      "weight": 400
+    }
+  },
+  "OpenSans": {
+    "bold": {
+      "path": "OpenSans-Bold.ttf",
+      "weight": 700
+    },
+    "regular": {
+      "path": "OpenSans-Regular.ttf",
+      "weight": 400
+    },
+    "semiBold": {
+      "path": "OpenSans-SemiBold.ttf",
+      "weight": 600
+    }
+  }
+}

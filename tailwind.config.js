@@ -21,6 +21,7 @@ export default {
   darkMode: 'media',
   theme: {
     fontFamily: {
+      sans: ['"Open Sans"', 'sans-serif'], // Set this as the default sans-serif font
       secondary: ['"Open Sans Condensed"', 'sans-serif'],
       primary: ['"Open Sans"', 'sans-serif'],
     },

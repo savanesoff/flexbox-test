@@ -10,7 +10,7 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../tailwind.config.js'
+import tailwindConfig from '../../../tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
 

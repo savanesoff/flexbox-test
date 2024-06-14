@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  // helping eslint to deal with import assertions like:
+  // import fonts from './../fonts.json' assert { type: 'json' }
+  "plugins": ["@babel/plugin-syntax-import-assertions"]
+}

@@ -24,6 +24,10 @@ export default [
         ecmaVersion: 2021,
         sourceType: 'module',
         project: './tsconfig.json', // Ensure it uses your tsconfig.json
+        ecmaFeatures: {
+          importAttributes: true,
+          importAssertions: true,
+        },
       },
       globals: {
         window: true,
