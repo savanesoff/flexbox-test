@@ -16,19 +16,22 @@ export default {
   },
   darkMode: 'media',
   theme: {
+    fontFamily: {
+      secondary: ['"Open Sans Condensed"', 'sans-serif'],
+      primary: ['"Open Sans"', 'sans-serif'],
+    },
+    fontWeight: {
+      normal: 400,
+      semibold: 600,
+      bold: 700,
+    },
     tabSize: {
       1: '1',
       2: '2',
       4: '4',
       8: '8',
     },
-
-    // spacing: {
-    //   2: '25rem', // example custom spacing rules
-    // },
     extend: {
-      // cannot extend the theme object as Cobalt
-      // does not support the css properties
       screens: {
         540: '540px',
         720: '720px',

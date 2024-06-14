@@ -1,0 +1,50 @@
+// Default font size
+html {
+  font-size: 5px;
+}
+
+@screen 540 {
+  html {
+    font-size: 16px;
+  }
+}
+
+@screen 720 {
+  html {
+    font-size: 21.333333333px;
+  }
+}
+
+@screen 1080 {
+  html {
+    font-size: 32px;
+  }
+}
+
+@screen 4k {
+  html {
+    font-size: 64px;
+  }
+}
+
+// define font families
+@font-face {
+  font-family: 'Open Sans Condensed';
+  src: url('./OpenSans_Condensed-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./OpenSans-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./OpenSans-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./OpenSans-SemiBold.ttf');
+  font-weight: 600;
+}

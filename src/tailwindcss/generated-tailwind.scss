@@ -1,7 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import './fonts.scss';
 
 .bg-inherit {
   background-color: theme('backgroundColor[inherit]');
@@ -2991,16 +2990,12 @@
   border-width: theme('borderWidth[DEFAULT]');
 }
 
-.font-sans {
-  font-family: theme('fontFamily[sans][0]');
+.font-secondary {
+  font-family: theme('fontFamily[secondary][0]');
 }
 
-.font-serif {
-  font-family: theme('fontFamily[serif][0]');
-}
-
-.font-mono {
-  font-family: theme('fontFamily[mono][0]');
+.font-primary {
+  font-family: theme('fontFamily[primary][0]');
 }
 
 .text-xs {
@@ -4471,6 +4466,18 @@
   max-width: theme('maxWidth[prose]');
 }
 
+.max-w-screen-540 {
+  max-width: theme('maxWidth[screen-540]');
+}
+
+.max-w-screen-720 {
+  max-width: theme('maxWidth[screen-720]');
+}
+
+.max-w-screen-1080 {
+  max-width: theme('maxWidth[screen-1080]');
+}
+
 .max-w-screen-sm {
   max-width: theme('maxWidth[screen-sm]');
 }
@@ -4489,6 +4496,10 @@
 
 .max-w-screen-2xl {
   max-width: theme('maxWidth[screen-2xl]');
+}
+
+.max-w-screen-4k {
+  max-width: theme('maxWidth[screen-4k]');
 }
 
 .max-h-0 {
@@ -7326,3 +7337,4 @@
   margin-top: theme('gap[3.5]');
   margin-bottom: 0;
 }
+
