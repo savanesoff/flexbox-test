@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Chromium NO CORS",
+      "runtimeExecutable": "stable",
+      "runtimeArgs": [
+        "--disable-web-security",
+        "--user-data-dir=/tmp/chrome_dev"
+      ],
+      "url": "http://localhost:9500",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Run pnpm start",
+      "postDebugTask": "Terminate pnpm start"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch generate-tailwind-scss.js",
+      "program": "${workspaceFolder}/generate-tailwind-scss.js",
+      "runtimeExecutable": "/home/sam/.nvm/versions/node/v18.19.1/bin/node"
+    }
+  ]
+}

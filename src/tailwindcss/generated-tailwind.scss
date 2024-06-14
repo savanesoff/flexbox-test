@@ -2990,6 +2990,10 @@
   border-width: theme('borderWidth[DEFAULT]');
 }
 
+.font-sans {
+  font-family: theme('fontFamily[sans][0]');
+}
+
 .font-secondary {
   font-family: theme('fontFamily[secondary][0]');
 }

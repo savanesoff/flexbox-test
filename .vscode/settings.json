@@ -26,5 +26,29 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "cSpell.words": ["clsx", "tailwindcss"]
+  "cSpell.words": ["clsx", "tailwindcss"],
+  "stylelint.validate": ["css", "scss"],
+  "stylelint.config": {
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-config-tailwindcss",
+      "stylelint-config-scss"
+    ],
+    "rules": {
+      "at-rule-no-unknown": null,
+      "scss/at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "variants",
+            "responsive",
+            "screen"
+          ]
+        }
+      ]
+    }
+  },
+  "scss.lint.unknownAtRules": "ignore"
 }
