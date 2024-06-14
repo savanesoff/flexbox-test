@@ -1,6 +1,6 @@
 export const Fonts = () => {
   return (
-    <div className="flex flex-col text-slate-700 col-gap-2">
+    <div className="flex w-full min-w-full flex-col text-slate-700 col-gap-2">
       <div className="border border-l-purple-700 p-1 font-primary text-sm font-normal">
         Primary Font Normal Example
       </div>
