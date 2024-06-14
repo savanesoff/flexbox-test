@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+/**
+ * WARNING:
+ *    Ensure to run pnpm generate:tailwind after updating this file!
+ */
 import {
   tabSizePlugin,
   buttonComponentsPlugin,

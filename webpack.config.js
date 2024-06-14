@@ -47,6 +47,13 @@ const config = (env, argv) => {
             'sass-loader',
           ],
         },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg|otf)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]',
+          },
+        },
       ],
     },
     devServer: {
