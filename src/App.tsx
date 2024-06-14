@@ -1,5 +1,4 @@
-import { JSComponents, TSComponent } from '@components'
-import { GapComponent } from '@components/gapComponent'
+import { JSComponents, TSComponent, GapComponent, Fonts } from '@components'
 
 export const App = () => {
   return (
@@ -8,6 +7,7 @@ export const App = () => {
       <JSComponents text={'Custom prop'} />
       <TSComponent text={'Custom prop'} />
       <GapComponent />
+      <Fonts />
     </div>
   )
 }

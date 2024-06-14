@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import './fonts.scss';
 
 .bg-inherit {
   background-color: theme('backgroundColor[inherit]');
@@ -7325,4 +7326,3 @@
   margin-top: theme('gap[3.5]');
   margin-bottom: 0;
 }
-

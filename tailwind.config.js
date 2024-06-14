@@ -22,24 +22,29 @@ export default {
       4: '4',
       8: '8',
     },
+
     // spacing: {
     //   2: '25rem', // example custom spacing rules
     // },
     extend: {
       // cannot extend the theme object as Cobalt
       // does not support the css properties
+      screens: {
+        540: '540px',
+        720: '720px',
+        1080: '1080px',
+        '4k': '3840px',
+      },
+      fontSize: {
+        sm: ['1rem'], // Custom font size for 'sm' screen
+      },
     },
   },
   variants: {
     extend: {},
   },
   extend: {
-    screens: {
-      '540p': '540px',
-      '720p': '720px',
-      '1080p': '1080px',
-      '4k': '3840px',
-    },
+    // extend default theme here
   },
   plugins: [tabSizePlugin, buttonComponentsPlugin, gapsPlugin],
 }
