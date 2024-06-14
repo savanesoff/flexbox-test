@@ -10,7 +10,7 @@
     "lint": "eslint . --ignore-pattern dist/",
     "format": "prettier --write .",
     "test": "vitest",
-    "generate:tailwind": "node --experimental-specifier-resolution=node ./generate-tailwind-scss.js"
+    "generate:tailwind": "node --experimental-specifier-resolution=node ./scripts/generate-tailwind-scss.js"
   },
   "keywords": [],
   "author": "",

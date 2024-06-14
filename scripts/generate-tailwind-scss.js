@@ -8,15 +8,11 @@
  */
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
+import process from 'process'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from './tailwind.config.js'
+import tailwindConfig from '../tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
-
-// Resolve __dirname in ESM
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 const generateScssClasses = theme => {
   let scssContent = `@import 'tailwindcss/base';\n@import 'tailwindcss/components';\n@import 'tailwindcss/utilities';\n\n`
@@ -156,7 +152,7 @@ const generateScssClasses = theme => {
 const scssClasses = generateScssClasses(section => fullConfig.theme[section])
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'src/tailwindcss/generated-tailwind.scss'),
+  path.resolve(process.cwd(), 'src/tailwindcss/generated-tailwind.scss'),
   scssClasses,
 )
 console.log('Generated Tailwind SCSS classes successfully.')
