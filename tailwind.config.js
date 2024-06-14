@@ -36,6 +36,8 @@ export default {
       8: '8',
     },
     extend: {
+      // while extending you add or override the default theme
+      // Configure custom breakpoints
       screens: {
         540: '540px',
         720: '720px',
