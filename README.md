@@ -17,6 +17,11 @@ $ npm install -g pnpm
 $ git clone
 $ cd flexbox-test
 $ pnpm install
-$ pnpm start
 
+```
+
+## Usage
+
+```sh
+$ pnpm start
 ```
